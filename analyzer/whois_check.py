@@ -29,7 +29,7 @@ def check_domain_age(url: str) -> dict:
 
         return {
                 'flagged': "flagged",
-                'score': 25 if age_days < 30 else (10 id age_days < 100 else 0)
+                'score': 25 if age_days < 30 else (10 if age_days < 100 else 0),
                 'detail': f"Domain '{domain}' is {age_days} old - {'NEWLY REGISTERED (high risk)' if age_days < 30 else 'Normal'}",
                 'domain': domain,
                 'age_days': age_days
